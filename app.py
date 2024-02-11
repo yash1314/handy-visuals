@@ -13,7 +13,11 @@ st.markdown("""##### This webapp allows you to create charts quickly using 'CSV'
 
 
 # User file input
-uploaded_file = st.file_uploader(label='upload',  label_visibility =  "hidden" )
+st.cache_data()
+def user_data():
+    return st.file_uploader(label='upload',  label_visibility =  "hidden" )
+
+uploaded_file = user_data()
 
 if uploaded_file:
     # noinspection PyInterpreter
@@ -46,7 +50,7 @@ if uploaded_file:
         # Display the selected chart
         if generate_button:
             with st.spinner(text="In progress"):
-                time.sleep(2)
+                time.sleep(0.5)
                 try:
                     utilities.create_chart(chart_type, df, data_type, x_selection, y_selection)
                 except:

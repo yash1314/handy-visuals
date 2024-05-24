@@ -8,7 +8,7 @@ st.set_option('deprecation.showPyplotGlobalUse', False)
 
 # Page Title
 st.title(':rainbow[Handy Visuals] :bar_chart:')
-st.markdown('<style>div.block-container{padding-top:1rem;}</style>', unsafe_allow_html=True)
+st.markdown('<style>div.block-container{padding-top:2rem;}</style>', unsafe_allow_html=True)
 st.markdown("""##### This webapp allows you to create charts quickly using 'CSV' file. Upload your csv file and choose desired options to generate chart.""")
 
 

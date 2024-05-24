@@ -30,6 +30,10 @@ if uploaded_file:
         sidebar_title = st.sidebar.header(':blue[Filters]')
         data_type = st.sidebar.radio('**Select Data Type** :', ['Numerical', 'Categorical'])
 
+        # Taking use input
+        x_selection = st.sidebar.selectbox('**X-axis** : ', list(df.columns))
+        y_selection = st.sidebar.selectbox('**Y-axis** : ', list(i for i in df.columns if i != x_selection))
+
         # Select chart type
         if data_type == 'Numerical':
             chart_type = st.sidebar.selectbox('**Select Numerical Chart Type** :', ['Scatter Plot', 'Line Plot',
@@ -40,10 +44,6 @@ if uploaded_file:
             chart_type = st.sidebar.selectbox('**Select Categorical Chart Type** :', ['Bar Plot', 'Count Plot', 'Strip Plot',
                                                                                   'Swarm Plot','Heatmap', 'Joint Plot', 'Pair Plot'
                                                                                   ])
-        # Taking use input
-        x_selection = st.sidebar.selectbox('**X-axis** : ', list(df.columns))
-        y_selection = st.sidebar.selectbox('**Y-axis** : ', list(i for i in df.columns if i != x_selection))
-
         generate_button = st.sidebar.button('Generate chart')
         st.markdown("---")
 
